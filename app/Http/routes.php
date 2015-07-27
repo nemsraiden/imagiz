@@ -15,6 +15,10 @@ Route::get('/', function () {
     return view('home');
 });
 
+Route::get('/home', function () {
+    return view('home');
+});
+
 
 // Authentication routes...
 Route::get('user/login', 'Auth\AuthController@getLogin');

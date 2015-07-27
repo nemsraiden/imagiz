@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use Illuminate\Support\Facades\Session;
 use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
@@ -23,6 +24,9 @@ class AuthController extends Controller
 
     use AuthenticatesAndRegistersUsers, ThrottlesLogins;
 
+
+    protected $redirectPath = '/user/login';
+
     /**
      * Create a new authentication controller instance.
      *
@@ -30,7 +34,8 @@ class AuthController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest', ['except' => 'getLogout']);
+        //$this->middleware('guest', ['except' => 'getLogout', 'except' => 'user/inscription']);
+
     }
 
     /**
@@ -57,8 +62,12 @@ class AuthController extends Controller
      */
     protected function create(array $data)
     {
+
+        Session::flash('success', "Inscription au site réussie !<br/>Merci de vous connecter");
+
         return User::create([
-            'name' => $data['name'],
+            'last_name' => $data['last_name'],
+            'first_name' => $data['first_name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
