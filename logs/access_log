@@ -2674,3 +2674,5 @@
 127.0.0.1 - - [27/Jul/2015:15:57:11 +0200] "GET /css/bootstrap.css HTTP/1.1" 304 - "http://imagiz/user/inscription" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.10; rv:39.0) Gecko/20100101 Firefox/39.0"
 127.0.0.1 - - [27/Jul/2015:15:57:34 +0200] "POST /user/inscription HTTP/1.1" 500 30145 "http://imagiz/user/inscription" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.10; rv:39.0) Gecko/20100101 Firefox/39.0"
 127.0.0.1 - - [27/Jul/2015:15:58:09 +0200] "POST /user/inscription HTTP/1.1" 500 30075 "http://imagiz/user/inscription" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.10; rv:39.0) Gecko/20100101 Firefox/39.0"
+127.0.0.1 - - [27/Jul/2015:16:05:55 +0200] "POST /user/inscription HTTP/1.1" 500 30109 "http://imagiz/user/inscription" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.10; rv:39.0) Gecko/20100101 Firefox/39.0"
+127.0.0.1 - - [27/Jul/2015:16:06:10 +0200] "POST /user/inscription HTTP/1.1" 500 54822 "http://imagiz/user/inscription" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.10; rv:39.0) Gecko/20100101 Firefox/39.0"
