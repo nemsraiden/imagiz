@@ -37,10 +37,10 @@
 
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="/">Home</a></li>
+                <li><a href="/">Home</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="/auth/login">Se connecter au site</a></li>
+                <li><a href="/user/login">Se connecter au site</a></li>
             </ul>
         </div><!--/.nav-collapse -->
 
@@ -49,25 +49,7 @@
     </div>
 </nav>
 
-<div class="container-fluid" id="headerJumbo">
-    <div class="row">
-        <div class="jumbotron jumbotron-light">
-            <div class="row">
-                <div class="col-md-4">
-                    {!! HTML::image('img/album-photos.png','imagiz.be créer vos album photos' ) !!}
-                </div>
-                <div class="col-md-6">
-                    <h1>www.imagiz.be</h1>
-                    <ul>
-                        <li>Créer et gérer vos albums photos</li>
-                        <li>Partager vos albums photo avec vos amis</li>
-                        <li>Système de recherche avancé</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+
 
 @yield('app')
 
@@ -75,7 +57,7 @@
 <footer class="footer">
     <div class="container">
         <div class="row">
-            <div class="col-md-6"><span class="big">Imagiz</span></div>
+            <div class="col-md-6"><span class="big">Imagiz.be</span></div>
             <div class="col-md-6 text-right">Created by NemSRaiden</div>
         </div>
     </div>
