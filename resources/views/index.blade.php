@@ -11,8 +11,8 @@
     <title>Imagiz</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.css" rel="stylesheet">
-    <link href="css/main.css" rel="stylesheet">
+    {!! HTML::style( asset('css/bootstrap.css') ) !!}
+    {!! HTML::style( asset('css/main.css') ) !!}
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -32,32 +32,60 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="">Imagiz</a>
+            <a class="navbar-brand" href="/">Imagiz.be</a>
         </div>
+
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li class="active"><a href="/">Home</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/auth/login">Se connecter au site</a></li>
             </ul>
         </div><!--/.nav-collapse -->
+
+
+
     </div>
 </nav>
 
-<div class="container">
-
-    <div class="starter-template">
-        <h1>Bootstrap starter template</h1>
-        <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
+<div class="container-fluid" id="headerJumbo">
+    <div class="row">
+        <div class="jumbotron jumbotron-light">
+            <div class="row">
+                <div class="col-md-4">
+                    {!! HTML::image('img/album-photos.png','imagiz.be créer vos album photos' ) !!}
+                </div>
+                <div class="col-md-6">
+                    <h1>www.imagiz.be</h1>
+                    <ul>
+                        <li>Créer et gérer vos albums photos</li>
+                        <li>Partager vos albums photo avec vos amis</li>
+                        <li>Système de recherche avancé</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </div>
+</div>
 
-</div><!-- /.container -->
+@yield('app')
+
+
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6"><span class="big">Imagiz</span></div>
+            <div class="col-md-6 text-right">Created by NemSRaiden</div>
+        </div>
+    </div>
+</footer>
 
 
 <!-- Bootstrap core JavaScript
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
+{!! HTML::script('js/bootstrap.min.js') !!}
 </body>
 </html>

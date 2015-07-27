@@ -1,3 +1,121 @@
+@charset "UTF-8";
 body {
   padding-top: 40px;
+  -webkit-box-sizing: border-box;
+  /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;
+  /* Firefox, other Gecko */
+  box-sizing: border-box;
+  /* Opera/IE 8+ */
+}
+
+#main ul, #main li {
+  margin-left: 7px;
+  padding-left: 0px;
+}
+
+#main ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#main li {
+  text-indent: -.7em;
+}
+
+#main li:before {
+  content: "• ";
+  color: #DF691A;
+  font-size: 20px;
+}
+
+/* --------------------
+PANEL
+---------------------- */
+.panel-default {
+  background-color: #fff;
+  color: #4e5d6c;
+  border: solid 1px #4e5d6c;
+}
+
+.panel-default .panel-heading {
+  background-color: #4e5d6c;
+}
+
+/* --------------------
+SIDEBAR
+---------------------- */
+.sidebar {
+  margin-top: 40px;
+}
+
+/* --------------------
+FOOTER
+---------------------- */
+html, body {
+  height: 100%;
+}
+
+#main {
+  min-height: 100%;
+}
+
+#main {
+  overflow: auto;
+  padding-bottom: 30px;
+  /* this needs to be bigger than footer height*/
+}
+
+.footer {
+  position: absolute;
+  height: 60px;
+  clear: both;
+  padding-top: 20px;
+  width: 100%;
+  background-color: #f5f5f5;
+  margin-top: -60px;
+}
+
+.footer .big {
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+/* --------------------
+JUMBOTRON
+---------------------- */
+.jumbotron-light {
+  margin-top: 15px;
+  background-color: #f6f5f5;
+}
+
+/* --------------------
+HEADER JUMBO
+---------------------- */
+#headerJumbo img {
+  width: 350px;
+}
+
+#headerJumbo h1 {
+  margin: 0px;
+  color: #4e5d6c;
+}
+
+#headerJumbo .jumbotron {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+#headerJumbo ul {
+  margin-top: 20px;
+  padding-left: 30px;
+}
+
+#headerJumbo ul li {
+  font-size: 20px;
+  list-style-type: none;
+  list-style-image: url("../img/arrow-little.png");
+  background-repeat: no-repeat;
+  margin-bottom: 6px;
 }
