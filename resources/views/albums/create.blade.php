@@ -4,6 +4,8 @@
 
 @section('content')
 
+
+
     <h1>Créer un album photo</h1>
 
     <hr/>

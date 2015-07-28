@@ -5067,7 +5067,8 @@ a.badge:focus {
 a.thumbnail:hover,
 a.thumbnail:focus,
 a.thumbnail.active {
-    border-color: #df691a;
+    background-color: #4e5d6c;
+    border: solid 1px #4e5d6c;
 }
 .thumbnail .caption {
     padding: 9px;
@@ -6860,7 +6861,7 @@ body {
 }
 table,
 .table {
-    font-size: 12px;
+    font-size: inherit;
 }
 table a:not(.btn),
 .table a:not(.btn) {
@@ -7031,8 +7032,8 @@ a.list-group-item-danger.active:focus {
     color: #ebebeb;
 }
 .thumbnail {
-    background-color: #4e5d6c;
-    border: none;
+    background-color: #fff;
+    border: solid 1px #4e5d6c;
 }
 .modal {
     padding: 0;

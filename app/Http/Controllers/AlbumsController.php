@@ -2,18 +2,21 @@
 
 namespace App\Http\Controllers;
 
+use App\Albums;
 use App\Http\Requests\AlbumsRequest;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class AlbumsController extends Controller
 {
     public function __construct()
     {
 
-        $this->middleware('auth', ['only' => ['create', 'store', 'edit', 'update', 'destroy']]);
+        $this->middleware('auth', ['only' => ['create', 'store', 'edit', 'update', 'destroy', 'show']]);
     }
     /**
      * Display a listing of the resource.
@@ -22,7 +25,10 @@ class AlbumsController extends Controller
      */
     public function index()
     {
-        return view('albums.index');
+        $albums = Albums::where('ID_proprietaire', '=', Auth::user()->id)->get();
+
+
+        return view('albums.index', compact('albums'));
     }
 
     /**
@@ -36,7 +42,7 @@ class AlbumsController extends Controller
         $year = Date('Y');
 
         for($i=0;$i<20;$i++){
-            $listYear[] = $year;
+            $listYear[$year] = $year;
             $year--;
         }
 
@@ -55,7 +61,20 @@ class AlbumsController extends Controller
      */
     public function store(Request $request, AlbumsRequest $albumsRequest)
     {
-        dd($request);
+        $album = new Albums;
+
+        $album->nom = $request->input('nom');
+        $album->description = $request->input('description');
+        $album->annee = $request->input('annee');
+        $album->mois = $request->input('mois');
+        $album->ID_proprietaire = Auth::user()->id;
+
+        $album->save();
+
+        Session::flash('success', "Votre nouveau album a été créé !");
+
+        return redirect('/albums');
+
     }
 
     /**
@@ -66,7 +85,9 @@ class AlbumsController extends Controller
      */
     public function show($id)
     {
-        //
+        $album = Albums::find($id);
+
+        return view('albums.show',compact('album'));
     }
 
     /**

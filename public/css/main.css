@@ -7,6 +7,7 @@ body {
   /* Firefox, other Gecko */
   box-sizing: border-box;
   /* Opera/IE 8+ */
+  font-size: 14px;
 }
 
 ul, li {
@@ -50,6 +51,14 @@ li:before {
 
 h1 {
   margin-top: 0px;
+}
+
+h2.bordered {
+  color: #DF691A;
+  margin: 10px 0 20px 0;
+  padding: 5px 0 5px 0;
+  border-top: solid 1px #DF691A;
+  border-bottom: solid 1px #DF691A;
 }
 
 /* --------------------
@@ -135,6 +144,10 @@ html, body {
 }
 
 #main .row:nth-child(0) {
+  padding-top: 40px;
+}
+
+#main.container {
   padding-top: 40px;
 }
 
@@ -281,4 +294,11 @@ BOUTON
 ---------------------- */
 .btn span {
   margin-right: 10px;
+}
+
+/* --------------------
+TABLE
+---------------------- */
+table td:first-child {
+  font-weight: bold;
 }
