@@ -32,8 +32,16 @@ li:before {
   font-size: 20px;
 
 }
-.alert-danger li:before{
-  color: #fff;
+.alert-danger {
+
+  li{
+    padding-left: 10px;
+    list-style: disc;
+  }
+
+  li:before {
+    color: #fff;
+  }
 }
 
 
@@ -108,7 +116,7 @@ PANEL
   background-color: #fff;
   color: $blue;
   border: solid 1px $blue;
-  
+
   .panel-heading{
     background-color: $blue;
   }
@@ -155,7 +163,6 @@ html, body {
   padding-top:20px;
   width: 100%;
   background-color: #515050;
-  margin-top: -60px;
   color: #ffffff;
 
   & .big{
@@ -224,7 +231,7 @@ HEADER JUMBO
   ul{
     margin-top: 20px;
     padding-left: 30px;
-    
+
     li{
       font-size: 20px;
       list-style-type: none;

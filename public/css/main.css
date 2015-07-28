@@ -30,6 +30,11 @@ li:before {
   font-size: 20px;
 }
 
+.alert-danger li {
+  padding-left: 10px;
+  list-style: disc;
+}
+
 .alert-danger li:before {
   color: #fff;
 }
@@ -140,7 +145,6 @@ html, body {
   padding-top: 20px;
   width: 100%;
   background-color: #515050;
-  margin-top: -60px;
   color: #ffffff;
 }
 

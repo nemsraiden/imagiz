@@ -1,12 +1,18 @@
-@if (count($errors) > 0)
-    <div class="alert alert-danger">
-        <strong>Whoops!</strong> Il y a des erreurs avec le formulaire.<br><br>
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
+@if(!Auth::check())
+    @if (count($errors) > 0)
+        <div class="alert alert-danger">
+
+            <strong>Whoops!</strong> Il y a des erreurs avec le formulaire.<br><br>
+            <ul>
+
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+
+            </ul>
+
+        </div>
+    @endif
 @endif
 
 @if(Auth::check())

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\AlbumsRequest;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -31,9 +32,19 @@ class AlbumsController extends Controller
      */
     public function create()
     {
+        $listYear = [];
+        $year = Date('Y');
+
+        for($i=0;$i<20;$i++){
+            $listYear[] = $year;
+            $year--;
+        }
+
+        $listMonth = ['Janvier','Février','Mars','Avril','Mai','Juin','Juillet','Août','Septembre','Octobre','Novembre','Décembre'];
+
         $this->middleware('Authenticate');
 
-        return view('albums.create');
+        return view('albums.create')->with(compact('listYear','listMonth'));
     }
 
     /**
@@ -42,9 +53,9 @@ class AlbumsController extends Controller
      * @param  Request  $request
      * @return Response
      */
-    public function store(Request $request)
+    public function store(Request $request, AlbumsRequest $albumsRequest)
     {
-        //
+        dd($request);
     }
 
     /**
