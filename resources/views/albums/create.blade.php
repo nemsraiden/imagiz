@@ -17,7 +17,7 @@
     {!! BootForm::select('Annee', 'annee')->options($listYear); !!}
     {!! BootForm::select('Mois', 'mois')->options($listMonth); !!}
 
-    {!! BootForm::submit('Submit') !!}
+    {!! BootForm::submit('Enregistrer') !!}
     {!! BootForm::close() !!}
 
 

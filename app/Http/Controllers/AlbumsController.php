@@ -4,15 +4,20 @@ namespace App\Http\Controllers;
 
 use App\Albums;
 use App\Http\Requests\AlbumsRequest;
+use App\User;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
+use Jenssegers\Date\Date;
 
 class AlbumsController extends Controller
 {
+
+
+
     public function __construct()
     {
 
@@ -48,8 +53,6 @@ class AlbumsController extends Controller
 
         $listMonth = ['Janvier','Février','Mars','Avril','Mai','Juin','Juillet','Août','Septembre','Octobre','Novembre','Décembre'];
 
-        $this->middleware('Authenticate');
-
         return view('albums.create')->with(compact('listYear','listMonth'));
     }
 
@@ -59,14 +62,14 @@ class AlbumsController extends Controller
      * @param  Request  $request
      * @return Response
      */
-    public function store(Request $request, AlbumsRequest $albumsRequest)
+    public function store(AlbumsRequest $albumsRequest)
     {
         $album = new Albums;
 
-        $album->nom = $request->input('nom');
-        $album->description = $request->input('description');
-        $album->annee = $request->input('annee');
-        $album->mois = $request->input('mois');
+        $album->nom = $albumsRequest->input('nom');
+        $album->description = $albumsRequest->input('description');
+        $album->annee = $albumsRequest->input('annee');
+        $album->mois = $albumsRequest->input('mois');
         $album->ID_proprietaire = Auth::user()->id;
 
         $album->save();
@@ -87,6 +90,16 @@ class AlbumsController extends Controller
     {
         $album = Albums::find($id);
 
+        $date = new Date('now', 'Europe/Brussels');
+
+        $date->month = $album->mois+1;
+
+        $album->mois =  $date->format('F');
+
+        $proprietaire = User::find($album->ID_proprietaire);
+
+        $album->proprietaire_nom = $proprietaire->first_name. ' ' .$proprietaire->last_name. ' (Propriétaire)';
+
         return view('albums.show',compact('album'));
     }
 
@@ -98,7 +111,20 @@ class AlbumsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $album = Albums::find($id);
+
+        $listYear = [];
+        $year = Date('Y');
+
+        for($i=0;$i<20;$i++){
+            $listYear[$year] = $year;
+            $year--;
+        }
+
+        $listMonth = ['Janvier','Février','Mars','Avril','Mai','Juin','Juillet','Août','Septembre','Octobre','Novembre','Décembre'];
+
+
+        return view('albums.edit',compact('album','listYear','listMonth'));
     }
 
     /**
@@ -108,9 +134,15 @@ class AlbumsController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function update(Request $request, $id)
+    public function update(AlbumsRequest $albumsRequest, $id)
     {
-        //
+        $album = Albums::find($id);
+
+        $album->update($albumsRequest->only('nom','description','annee','mois'));
+
+        Session::flash('success', "L'album a été correctement modifié");
+
+        return redirect('/albums/'.$album->id);
     }
 
     /**
