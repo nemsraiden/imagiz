@@ -13,6 +13,7 @@
     <!-- Bootstrap core CSS -->
     {!! HTML::style( asset('css/bootstrap.css') ) !!}
     {!! HTML::style( asset('css/main.css') ) !!}
+    {!! HTML::style( asset('css/font-awesome.min.css') ) !!}
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -37,13 +38,22 @@
 
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <li><a href="/">Home</a></li>
+                <li><a href="/"><span class="fa fa-home"></span> Home</a></li>
+                <li ><a href="/"><span class="fa fa-camera"></span> Mes albums</a></li>
+                <li><a href="/"><span class="fa fa-search"></span> Rechercher une photo</a></li>
             </ul>
            @if(Auth::check())
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="">Mon Compte</a></li>
-                    <li><a href="/user/logout">Logout</a></li>
+                    <li class="dropdown dropdown-submenu"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="fa fa-user"></span> Mon compte</a>
+                        <ul class="dropdown-menu">
+                            <li ><a href="#"><span class="fa fa-camera"></span> Mes albums photos</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#"><span class="fa fa-wrench"></span> Mes informations</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="/user/logout"><span class="fa fa-sign-out "></span> Logout</a></li>
                 </ul>
+
 
             @else
 
