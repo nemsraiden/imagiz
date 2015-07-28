@@ -39,9 +39,19 @@
             <ul class="nav navbar-nav">
                 <li><a href="/">Home</a></li>
             </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="/user/login">Se connecter au site</a></li>
-            </ul>
+           @if(Auth::check())
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="">Mon Compte</a></li>
+                    <li><a href="/user/logout">Logout</a></li>
+                </ul>
+
+            @else
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="/user/login">Se connecter au site</a></li>
+                </ul>
+
+            @endif
         </div><!--/.nav-collapse -->
 
 

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use Validator;
 use App\Http\Controllers\Controller;
@@ -25,7 +26,8 @@ class AuthController extends Controller
     use AuthenticatesAndRegistersUsers, ThrottlesLogins;
 
 
-    protected $redirectPath = '/user/login';
+    protected $redirectPath = '/';
+    protected $loginPath = '/user/login';
 
     /**
      * Create a new authentication controller instance.
@@ -35,6 +37,7 @@ class AuthController extends Controller
     public function __construct()
     {
         //$this->middleware('guest', ['except' => 'getLogout', 'except' => 'user/inscription']);
+        //Session::flush();
 
     }
 
