@@ -39,7 +39,7 @@
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
                 <li><a href="/"><span class="fa fa-home"></span> Home</a></li>
-                <li ><a href="/"><span class="fa fa-camera"></span> Mes albums</a></li>
+                <li ><a href="/albums/"><span class="fa fa-camera"></span> Mes albums photos</a></li>
                 <li><a href="/"><span class="fa fa-search"></span> Rechercher une photo</a></li>
             </ul>
            @if(Auth::check())

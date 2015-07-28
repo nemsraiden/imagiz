@@ -1,3 +1,5 @@
+@include('jumbotron')
+
 @extends('sidebar')
 
 @section('content')

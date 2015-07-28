@@ -47,6 +47,10 @@ li:before {
   }
 }
 
+h1{
+  margin-top: 0px;
+}
+
 /* --------------------
 NAVBAR
 ---------------------- */
@@ -110,15 +114,18 @@ PANEL
   }
 }
 
+/*.panel-primary{
 
-/* --------------------
-SIDEBAR
----------------------- */
+  background-color: #fff;
+  border: solid 1px #ccc;
 
-.sidebar{
-  margin-top: 40px;
+  .panel-heading{
+    background: #ccc;
+    color: #333;
+  }
+}*/
 
-}
+
 
 /* --------------------
 FOOTER
@@ -132,12 +139,14 @@ html, body {
 
 #main {
   min-height: 100%;
-}
-
-#main {
   overflow:auto;
   padding-bottom:30px; /* this needs to be bigger than footer height*/
+
+  .row:nth-child(0){
+    padding-top: 40px;
+  }
 }
+
 
 .footer {
   position: absolute;
@@ -247,5 +256,49 @@ SIDEBAR
   text-align: left;
 }
 
+.sidebar{
+  h4{
+    border-bottom: solid 1px $blue;
+    padding: 0 0 4px 0px;
+  }
+
+  ul{
+    margin-left: 6px;
+    margin-bottom: 10px;
+  }
+
+  li{
+    content: "";
+    list-style: circle;
+
+    a{
+      color: #333;
+      font-size: 18px;
+      padding-left: 15px;
+    }
+  }
+  li::before {
+    color: $blue;
+    content: "";
+    font-size: 20px;
+  }
+
+  .btn-default{
+    margin-bottom: 10px;
+    border-radius: 10px;
+    padding: 5px 10px 5px 10px;
 
 
+  }
+}
+
+/* --------------------
+BOUTON
+---------------------- */
+
+.btn{
+
+  span{
+    margin-right: 10px;
+  }
+}

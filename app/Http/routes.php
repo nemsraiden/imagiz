@@ -20,6 +20,10 @@ Route::get('/home', function () {
 });
 
 
+// album
+Route::resource('albums', 'AlbumsController');
+
+
 // Authentication routes...
 Route::get('user/login', 'Auth\AuthController@getLogin');
 Route::post('user/login', 'Auth\AuthController@postLogin');

@@ -43,6 +43,10 @@ li:before {
   margin-right: 15px;
 }
 
+h1 {
+  margin-top: 0px;
+}
+
 /* --------------------
 NAVBAR
 ---------------------- */
@@ -101,13 +105,16 @@ PANEL
   background-color: #4e5d6c;
 }
 
-/* --------------------
-SIDEBAR
----------------------- */
-.sidebar {
-  margin-top: 40px;
-}
+/*.panel-primary{
 
+  background-color: #fff;
+  border: solid 1px #ccc;
+
+  .panel-heading{
+    background: #ccc;
+    color: #333;
+  }
+}*/
 /* --------------------
 FOOTER
 ---------------------- */
@@ -117,12 +124,13 @@ html, body {
 
 #main {
   min-height: 100%;
-}
-
-#main {
   overflow: auto;
   padding-bottom: 30px;
   /* this needs to be bigger than footer height*/
+}
+
+#main .row:nth-child(0) {
+  padding-top: 40px;
 }
 
 .footer {
@@ -229,4 +237,44 @@ SIDEBAR
   margin-bottom: 5px;
   font-size: 14px;
   text-align: left;
+}
+
+.sidebar h4 {
+  border-bottom: solid 1px #4e5d6c;
+  padding: 0 0 4px 0px;
+}
+
+.sidebar ul {
+  margin-left: 6px;
+  margin-bottom: 10px;
+}
+
+.sidebar li {
+  content: "";
+  list-style: circle;
+}
+
+.sidebar li a {
+  color: #333;
+  font-size: 18px;
+  padding-left: 15px;
+}
+
+.sidebar li::before {
+  color: #4e5d6c;
+  content: "";
+  font-size: 20px;
+}
+
+.sidebar .btn-default {
+  margin-bottom: 10px;
+  border-radius: 10px;
+  padding: 5px 10px 5px 10px;
+}
+
+/* --------------------
+BOUTON
+---------------------- */
+.btn span {
+  margin-right: 10px;
 }
