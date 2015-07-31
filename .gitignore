@@ -7,3 +7,4 @@ dploy.yaml
 .env.example
 .gitignore
 .gitattributes
+gitattributes
