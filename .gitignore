@@ -3,3 +3,5 @@
 Homestead.yaml
 .env
 /logs
+dploy.yaml
+.env.example
