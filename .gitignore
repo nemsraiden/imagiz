@@ -8,3 +8,5 @@ dploy.yaml
 .gitignore
 .gitattributes
 gitattributes
+rev
+.rev
