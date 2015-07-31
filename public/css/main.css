@@ -38,6 +38,7 @@ li:before {
 
 .alert-danger li:before {
   color: #fff;
+  content: "";
 }
 
 .auth-login {
@@ -294,6 +295,14 @@ BOUTON
 ---------------------- */
 .btn span {
   margin-right: 10px;
+}
+
+.btn-file {
+  background-color: #4e5d6c;
+}
+
+.btn-file:hover {
+  background-color: #3d4954;
 }
 
 /* --------------------

@@ -43,6 +43,7 @@ li:before {
 
   li:before {
     color: #fff;
+    content: "";
   }
 }
 
@@ -321,6 +322,13 @@ BOUTON
   span{
     margin-right: 10px;
   }
+}
+
+.btn-file{
+  background-color: $blue;
+}
+.btn-file:hover{
+  background-color: #3d4954;
 }
 
 /* --------------------

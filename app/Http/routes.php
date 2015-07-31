@@ -22,6 +22,8 @@ Route::get('/home', function () {
 
 // album
 Route::resource('albums', 'AlbumsController');
+Route::get('albums/{id}/photos', 'AlbumsController@photosAddView');
+Route::post('albums/{id}/photos', 'AlbumsController@photosAdd');
 
 
 // Authentication routes...

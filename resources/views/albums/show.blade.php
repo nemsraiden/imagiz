@@ -15,6 +15,13 @@
 
             <h2 class="bordered">Photos de l'album</h2>
 
+            <div class="text-right">
+                <a href="/albums/{{$album->id}}/photos" class="btn btn-default">
+                    <span class="fa  fa-camera"></span> Ajouter des photos
+                </a>
+            </div>
+
+
             <div class="row">
 
 

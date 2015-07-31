@@ -14,6 +14,8 @@
     {!! HTML::style( asset('css/bootstrap.css') ) !!}
     {!! HTML::style( asset('css/main.css') ) !!}
     {!! HTML::style( asset('css/font-awesome.min.css') ) !!}
+    {!! HTML::style( asset('css/fileinput.css') ) !!}
+
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -89,5 +91,9 @@
 <!-- Placed at the end of the document so the pages load faster -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 {!! HTML::script('js/bootstrap.min.js') !!}
+{!! HTML::script('js/fileinput.min.js') !!}
+{!! HTML::script('js/fileinput_locale_fr.js') !!}
+{!! HTML::script('js/main.js') !!}
+
 </body>
 </html>

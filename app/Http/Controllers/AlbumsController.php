@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Session;
 use Jenssegers\Date\Date;
 
@@ -21,7 +22,7 @@ class AlbumsController extends Controller
     public function __construct()
     {
 
-        $this->middleware('auth', ['only' => ['create', 'store', 'edit', 'update', 'destroy', 'show']]);
+        $this->middleware('auth');
     }
     /**
      * Display a listing of the resource.
@@ -154,5 +155,31 @@ class AlbumsController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+
+    /**
+     * Permet d'aficher la page d'ajout de photo
+     *
+     * @param  int  $id
+     * @return View
+     */
+    public function photosAddView($id){
+        $album = Albums::find($id);
+
+
+        return view('albums.photos',compact('album'));
+    }
+
+    /**
+     * Permet d'aficher la page d'ajout de photo
+     *
+     * @param  int  $id
+     * @return View
+     */
+    public function photosAdd($id, Request $request){
+
+        dd($request);
+
     }
 }
