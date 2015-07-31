@@ -5,3 +5,5 @@ Homestead.yaml
 /logs
 dploy.yaml
 .env.example
+.gitignore
+.gitattributes
