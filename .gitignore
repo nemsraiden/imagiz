@@ -2,10 +2,3 @@
 Homestead.yaml
 .env
 /logs
-dploy.yaml
-.env.example
-.gitignore
-.gitattributes
-gitattributes
-rev
-.rev

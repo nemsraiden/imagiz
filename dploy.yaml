@@ -1,0 +1,11 @@
+dev:
+    scheme: ftp
+    host: ftp.serv-management.fr
+    port: 21
+    user: imagiz@serv-management.fr
+    pass: imagiz123
+    check: true
+    revision : rev
+    exclude: ["dploy.yaml", ".gitignore",".gitattributes",".rev",".htaccess"]
+    path:
+        remote:
