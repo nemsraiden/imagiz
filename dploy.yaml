@@ -6,6 +6,6 @@ dev:
     pass: imagiz123
     check: true
     revision : rev
-    exclude: ["dploy.yaml", ".gitignore",".gitattributes",".rev",".htaccess"]
+    exclude: ["dploy.yaml", ".gitignore",".gitattributes",".rev",".htaccess",".htaccess"]
     path:
         remote:

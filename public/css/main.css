@@ -311,3 +311,15 @@ TABLE
 table td:first-child {
   font-weight: bold;
 }
+
+/* --------------------
+ALBUM PHOTOS
+---------------------- */
+.album-photos-h2 {
+  height: 57px;
+}
+
+.album-photos-h2 div {
+  float: right;
+  display: inline-block;
+}

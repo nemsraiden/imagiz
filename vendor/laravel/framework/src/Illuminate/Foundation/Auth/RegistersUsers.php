@@ -35,8 +35,8 @@ trait RegistersUsers
             );
         }
 
-        $this->create($request->all());
+        Auth::login($this->create($request->all()));
 
-        return redirect('/user/login');
+        return redirect($this->redirectPath());
     }
 }

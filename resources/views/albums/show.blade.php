@@ -13,19 +13,39 @@
         <div class="col-md-8">
 
 
-            <h2 class="bordered">Photos de l'album</h2>
+            <h2 class="bordered album-photos-h2">Photos de l'album
+                <div>
+                    <a href="/albums/{{$album->id}}/photos" class="btn btn-primary">
+                        <span class="fa  fa-camera"></span> Ajouter des photos
+                    </a>
+                </div>
+            </h2>
 
-            <div class="text-right">
-                <a href="/albums/{{$album->id}}/photos" class="btn btn-default">
-                    <span class="fa  fa-camera"></span> Ajouter des photos
-                </a>
-            </div>
+
 
 
             <div class="row">
 
 
-                <div class="col-md-4 ">
+                <div class="col-md-3 ">
+                    <a href="/albums/{{$album->id}}" >
+                        {!! HTML::image('img/nopicture.png', $album->nom, array('class' => 'img-responsive')) !!}
+                    </a>
+
+                </div>
+                <div class="col-md-3 ">
+                    <a href="/albums/{{$album->id}}" >
+                        {!! HTML::image('img/nopicture.png', $album->nom, array('class' => 'img-responsive')) !!}
+                    </a>
+
+                </div>
+                <div class="col-md-3 ">
+                    <a href="/albums/{{$album->id}}" >
+                        {!! HTML::image('img/nopicture.png', $album->nom, array('class' => 'img-responsive')) !!}
+                    </a>
+
+                </div>
+                <div class="col-md-3 ">
                     <a href="/albums/{{$album->id}}" >
                         {!! HTML::image('img/nopicture.png', $album->nom, array('class' => 'img-responsive')) !!}
                     </a>
@@ -34,6 +54,7 @@
 
 
             </div>
+
 
             <hr/>
 

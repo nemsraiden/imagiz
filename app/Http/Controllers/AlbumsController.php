@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Albums;
 use App\Http\Requests\AlbumsRequest;
+use App\Http\Requests\PhotosRequest;
 use App\User;
 use Illuminate\Http\Request;
 
@@ -12,6 +13,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Validator;
+use Intervention\Image\Facades\Image;
 use Jenssegers\Date\Date;
 
 class AlbumsController extends Controller
@@ -177,9 +180,34 @@ class AlbumsController extends Controller
      * @param  int  $id
      * @return View
      */
-    public function photosAdd($id, Request $request){
+    public function photosAdd($id, PhotosRequest $photosrequest){
 
-        dd($request);
+
+        $files = $photosrequest->file('file');
+
+        foreach ($files as $file) {
+
+            $name = Auth::id().'_'.$id.'_'.str_slug(pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME),'-').rand(1000,9999);
+            $name_thumb = 'thumb_'.$name;
+            $name_thumb2 = 'thumb2_'.$name;
+
+            $img = Image::make($file);
+            $img->interlace();
+            $img->save('uploads/photos/' . $name .'.'. $file->getClientOriginalExtension());
+
+            $img->fit(200, 200);
+            $img->save('uploads/photos/' . $name_thumb  .'.'. $file->getClientOriginalExtension());
+
+            $img = Image::make($file);
+            $img->resize(200, null, function($constraint){
+                $constraint->aspectRatio();
+            });
+            $img->save('uploads/photos/' . $name_thumb2  .'.'. $file->getClientOriginalExtension());
+
+
+
+        }
+
 
     }
 }
