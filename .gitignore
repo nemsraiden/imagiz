@@ -2,3 +2,4 @@
 Homestead.yaml
 /logs
 .env
+prepros.cfg
