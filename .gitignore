@@ -3,3 +3,6 @@ Homestead.yaml
 /logs
 .env
 prepros.cfg
+.env
+.idea/*
+workspace.xml
