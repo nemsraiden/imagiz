@@ -26,31 +26,45 @@
 
             <div class="row">
 
+                @if(empty($pictures))
+                    <div class="col-md-12">
+                        <p>Il n'y a aucune photo dans cette album<br/>
+                                Vous pouvez ajouter des photos via le bouton supérieur
+                        </p>
+                    </div>
+                @else
+                    <!--<div class="grid">
+                        @foreach($pictures as $picture)
 
-                <div class="col-md-3 ">
+                                <div class=" grid-item ">
+                                    <a href="{{$picture['big']}}" data-ngthumb="{{$picture['thumb']}}" data-ngdesc="Description1" >
+                                        {!! HTML::image($picture["thumb"], '', array('class' => 'img-responsive')) !!}
+                                    </a>
+
+                                </div>
+
+
+                        @endforeach
+                    </div>-->
+
+
+                    <div id="nanoGallery3">
+                        @foreach($pictures as $picture)
+
+                            <a href="{{$picture['big']}}" data-ngthumb="{{$picture['thumb']}}" data-ngdesc="Description1">{!! HTML::image($picture["thumb"], '', array('class' => 'img-responsive')) !!}</a>
+
+
+                        @endforeach
+                    </div>
+
+                @endif
+
+                <!--<div class="col-md-3 ">
                     <a href="/albums/{{$album->id}}" >
                         {!! HTML::image('img/nopicture.png', $album->nom, array('class' => 'img-responsive')) !!}
                     </a>
 
-                </div>
-                <div class="col-md-3 ">
-                    <a href="/albums/{{$album->id}}" >
-                        {!! HTML::image('img/nopicture.png', $album->nom, array('class' => 'img-responsive')) !!}
-                    </a>
-
-                </div>
-                <div class="col-md-3 ">
-                    <a href="/albums/{{$album->id}}" >
-                        {!! HTML::image('img/nopicture.png', $album->nom, array('class' => 'img-responsive')) !!}
-                    </a>
-
-                </div>
-                <div class="col-md-3 ">
-                    <a href="/albums/{{$album->id}}" >
-                        {!! HTML::image('img/nopicture.png', $album->nom, array('class' => 'img-responsive')) !!}
-                    </a>
-
-                </div>
+                </div>-->
 
 
             </div>
@@ -95,10 +109,6 @@
         </div>
 
     </div>
-
-
-
-
 
 
 @endsection

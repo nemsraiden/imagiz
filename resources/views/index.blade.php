@@ -15,12 +15,14 @@
     {!! HTML::style( asset('css/main.css') ) !!}
     {!! HTML::style( asset('css/font-awesome.min.css') ) !!}
     {!! HTML::style( asset('css/fileinput.css') ) !!}
+    {!! HTML::style( asset('css/nanogallery.css') ) !!}
 
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+
     <![endif]-->
 </head>
 
@@ -93,7 +95,12 @@
 {!! HTML::script('js/bootstrap.min.js') !!}
 {!! HTML::script('js/fileinput.min.js') !!}
 {!! HTML::script('js/fileinput_locale_fr.js') !!}
+{!! HTML::script('js/isotope.pkgd.min.js') !!}
+{!! HTML::script('js/jquery.nanogallery.min.js') !!}
+
 {!! HTML::script('js/main.js') !!}
+
+
 
 </body>
 </html>

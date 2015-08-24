@@ -5,12 +5,14 @@ namespace App\Http\Controllers;
 use App\Albums;
 use App\Http\Requests\AlbumsRequest;
 use App\Http\Requests\PhotosRequest;
+use App\Pictures;
 use App\User;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
@@ -104,7 +106,18 @@ class AlbumsController extends Controller
 
         $album->proprietaire_nom = $proprietaire->first_name. ' ' .$proprietaire->last_name. ' (Propriétaire)';
 
-        return view('albums.show',compact('album'));
+
+        $picturesData = $album->pictures;
+
+        $pictures = array();
+        $i=0;
+        foreach($picturesData as $picture){
+
+            $pictures[$i]['big'] = $picture->directory.'/'.$picture->name;
+            $pictures[$i]['thumb'] = $picture->directory.'/thumb2_'.$picture->name;
+            $i++;
+        }
+        return view('albums.show',compact('album','pictures'));
     }
 
     /**
@@ -182,32 +195,49 @@ class AlbumsController extends Controller
      */
     public function photosAdd($id, PhotosRequest $photosrequest){
 
+        $directory = '/uploads/photos/'.$id;
+
+        if (!File::exists(public_path().$directory)){
+            File::makeDirectory(public_path().$directory, 0775,true);
+        }
 
         $files = $photosrequest->file('file');
+
+
 
         foreach ($files as $file) {
 
             $name = Auth::id().'_'.$id.'_'.str_slug(pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME),'-').rand(1000,9999);
             $name_thumb = 'thumb_'.$name;
             $name_thumb2 = 'thumb2_'.$name;
+            $file_path = $name.'.'.$file->getClientOriginalExtension();
 
             $img = Image::make($file);
             $img->interlace();
-            $img->save('uploads/photos/' . $name .'.'. $file->getClientOriginalExtension());
+            $img->save('uploads/photos/'.$id.'/' . $name .'.'. $file->getClientOriginalExtension());
 
             $img->fit(200, 200);
-            $img->save('uploads/photos/' . $name_thumb  .'.'. $file->getClientOriginalExtension());
+            $img->save('uploads/photos/'.$id.'/' . $name_thumb  .'.'. $file->getClientOriginalExtension());
 
             $img = Image::make($file);
-            $img->resize(200, null, function($constraint){
+            $img->resize(180, null, function($constraint){
                 $constraint->aspectRatio();
             });
-            $img->save('uploads/photos/' . $name_thumb2  .'.'. $file->getClientOriginalExtension());
+            $img->save('uploads/photos/'.$id.'/' . $name_thumb2  .'.'. $file->getClientOriginalExtension());
 
+            $picture = new Pictures();
 
+            $picture->name = $file_path;
+            $picture->directory = $directory;
+            $picture->albums_id = $id;
 
+            $picture->save();
         }
 
+
+        Session::flash('success', "Vos photos on été ajoutées à l'album");
+
+        return redirect('/albums/'.$id);
 
     }
 }

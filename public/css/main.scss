@@ -353,3 +353,44 @@ ALBUM PHOTOS
     display: inline-block;
   }
 }
+
+/* --------------------
+GRID
+---------------------- */
+
+.grid-item {
+  float: left;
+  background: #fff;
+  border: 1px solid #4e5d6c;
+  margin:2px;
+  padding: 3px;
+  opacity: 0.8;
+  
+  &:hover{
+    opacity: 1;
+  }
+  img{
+    width: 180px;
+  }
+}
+
+#nanoGallery3{
+
+  opacity: 0.8;
+
+  .labelImage{
+    display: none;
+  }
+
+  .nanoGalleryThumbnailContainer{
+     opacity: 0.8;
+
+    &:hover{
+      opacity: 0.8;
+      background-color: rgba(0,0,0,0.2);
+    }
+    img:hover{
+      opacity: 0.8;
+    }
+  }
+}
