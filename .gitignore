@@ -1,8 +1,6 @@
 /node_modules
+/.env
 Homestead.yaml
-/logs
-.env
-prepros.cfg
-.env
-.idea/*
-workspace.xml
+/prepros.cfg
+/public/logs
+/env
